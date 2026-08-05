@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Water Surface</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="cyan">
+    <main class="scene" aria-label="Interactive water surface">
+      <canvas id="water" aria-hidden="true"></canvas>
+
+      <button class="theme-toggle" type="button" aria-label="Switch to dark water mode">
+        <span class="toggle-track" aria-hidden="true">
+          <span class="toggle-thumb"></span>
+        </span>
+      </button>
+    </main>
+
+    <script src="water.js"></script>
+  </body>
+</html>
