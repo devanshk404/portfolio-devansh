@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title"><title id="title">Experimental Indian Wedding Film — original concept placeholder</title><defs><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".12"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="currentColor" stroke-opacity=".12"/></pattern></defs><rect width="100%" height="100%" fill="#2c2120"/>
+<rect x="87" y="0" width="1026" height="800" fill="#612c31"/>
+<path d="M246 715V288Q246 118 600 39Q954 118 954 288V715Z" fill="#a05441"/>
+<path d="M320 715V318Q320 170 600 103Q880 170 880 318V715Z" fill="#e5b771"/>
+<path d="M391 715V350Q391 216 600 170Q809 216 809 350V715Z" fill="#4a2f2d"/>
+<circle cx="600" cy="414" r="102" fill="none" stroke="#d49658" stroke-width="2"/>
+<g fill="#d29a62"><circle cx="180" cy="129" r="5"/><circle cx="1020" cy="129" r="5"/><circle cx="180" cy="240" r="5"/><circle cx="1020" cy="240" r="5"/><circle cx="180" cy="351" r="5"/><circle cx="1020" cy="351" r="5"/><circle cx="180" cy="462" r="5"/><circle cx="1020" cy="462" r="5"/><circle cx="180" cy="573" r="5"/><circle cx="1020" cy="573" r="5"/></g>
+<path d="M505 713L527 535Q527 498 562 498Q600 498 600 535L614 713M611 713L638 536Q638 500 668 500Q707 500 707 536L738 713" fill="#1d2220"/>
+<text x="54" y="746" fill="#f0d5a3" font-family="monospace" font-size="21" letter-spacing="2">A WEDDING, REIMAGINED.</text><text x="54" y="95" fill="#f0d5a3" font-family="monospace" font-size="15" letter-spacing="2">FILM STUDY / ARTWORK PLACEHOLDER</text>
+</svg>

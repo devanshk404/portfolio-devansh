@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title"><title id="title">Character experiments — original silhouette concept placeholder</title><defs><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".12"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="currentColor" stroke-opacity=".12"/></pattern></defs><rect width="100%" height="100%" fill="#29242d"/>
+<g color="#b6a2bd"><rect width="1200" height="800" fill="url(#grid)"/></g>
+<g fill="#a396b4"><path d="M170 636V404Q170 335 240 335Q310 335 310 404V636Z"/><circle cx="240" cy="258" r="63"/>
+<path d="M480 636V350Q480 245 600 245Q720 245 720 350V636Z"/><circle cx="600" cy="173" r="74"/>
+<path d="M890 636V404Q890 335 960 335Q1030 335 1030 404V636Z"/><circle cx="960" cy="258" r="63"/></g>
+<g fill="#29242d"><circle cx="224" cy="253" r="6"/><circle cx="254" cy="253" r="6"/><circle cx="576" cy="171" r="7"/><circle cx="624" cy="171" r="7"/><circle cx="946" cy="253" r="6"/><circle cx="976" cy="253" r="6"/></g>
+<path d="M560 206Q600 231 640 206" fill="none" stroke="#29242d" stroke-width="7"/>
+<text x="54" y="93" fill="#d7c8dd" font-family="monospace" font-size="25" letter-spacing="2">WHO COULD THIS BECOME?</text><text x="54" y="749" fill="#c3b6c7" font-family="monospace" font-size="15" letter-spacing="2">CHARACTER STUDIES / ARTWORK PLACEHOLDER</text>
+</svg>
