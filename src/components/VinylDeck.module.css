@@ -1,0 +1,300 @@
+.deck {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 420 / 310;
+  border: 1px solid transparent;
+}
+
+.chassis {
+  position: absolute;
+  inset: -1px;
+  border: 1px solid #33373b;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #25292c, #1c2024 58%, #191b1e), #1d2023;
+  box-shadow:
+    inset 0 1px #ffffff13,
+    inset 0 -1px #0009,
+    0 4px 0 #0d0e10,
+    0 5px 0 #313236,
+    0 13px 22px #0008;
+}
+
+.chassis::before,
+.chassis::after {
+  position: absolute;
+  right: 3.5%;
+  width: 1.65%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(
+    136deg,
+    #46494b 40%,
+    #0d0e10 44% 56%,
+    #313438 60%
+  );
+  box-shadow: 0 1px 1px #0009;
+  content: "";
+}
+
+.chassis::before {
+  top: 5%;
+}
+
+.chassis::after {
+  bottom: 5%;
+}
+
+.platter {
+  position: absolute;
+  top: 50%;
+  left: 41%;
+  width: 67%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 1px solid transparent;
+}
+
+.platter::before {
+  position: absolute;
+  inset: -1px;
+  border: 1px solid #090a0c;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(#676a6b 0deg 0.5deg, #3a3c3e 0.8deg 2deg), #494d4d;
+  box-shadow:
+    inset 0 0 0 1px #959a9b30,
+    1px 4px 0 #0c0e10,
+    1px 7px 9px #0009;
+  content: "";
+}
+
+.record {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid #0a0a0a;
+  border-radius: 50%;
+  background: #0d0e0f;
+  box-shadow:
+    inset 0 0 0 1px #81888a33,
+    0 0 0 1px #090909,
+    0 2px 4px #000b;
+}
+
+.mountedRecord {
+  position: absolute;
+  inset: 2.5%;
+  width: auto;
+}
+
+:global([data-vinyl-intro-target]) .record {
+  opacity: 0;
+}
+
+.grooves,
+.sheen,
+.rotor {
+  position: absolute;
+  inset: 0;
+}
+
+.grooves {
+  background:
+    radial-gradient(
+      circle closest-side,
+      transparent 47%,
+      #050505 47.5% 48.1%,
+      transparent 48.7% 64%,
+      #020303 64.7% 65.4%,
+      transparent 66% 81.4%,
+      #08090a 82% 83%,
+      transparent 84%
+    ),
+    repeating-radial-gradient(
+      circle closest-side,
+      #101112 0 0.6%,
+      #1e2021 0.75%,
+      #141616 1% 1.5%
+    );
+}
+
+.sheen {
+  background: conic-gradient(
+    from 232deg,
+    transparent 3deg,
+    #c1d1dd24 26deg,
+    #8b979f14 50deg,
+    transparent 73deg 203deg,
+    #8e9a9e0f 223deg,
+    #9daab727 247deg,
+    transparent 272deg
+  );
+  box-shadow: inset 0 0 11px #0008;
+  mask-image: radial-gradient(circle closest-side, transparent 38%, #000 43%);
+}
+
+.rotor {
+  display: grid;
+  place-items: center;
+}
+
+.grooves::after {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 1% 0.5% at 34% 22%, #bacac644, transparent),
+    radial-gradient(ellipse 0.8% 0.4% at 72% 35%, #c1d0ce62, transparent),
+    radial-gradient(ellipse 0.7% 0.85% at 21% 65%, #bacac65a, transparent);
+  content: "";
+}
+
+.label {
+  position: relative;
+  width: 35%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid #737874;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle closest-side,
+    #555957 42%,
+    #454946 89%,
+    #5d605b
+  );
+  box-shadow: 0 0 0 3px #131415;
+}
+
+.label::after {
+  position: absolute;
+  inset: 9%;
+  border: 1px solid #ffffff22;
+  border-radius: 50%;
+  content: "";
+}
+
+.artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.artwork[data-loaded="true"] {
+  opacity: 1;
+}
+
+.spindle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.3%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 1px solid #383b3e;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d7d8cd, #858c88 48%, #3d4343 76%);
+  box-shadow: 0 1px 2px #000c;
+}
+
+.pivotPlate,
+.armRest {
+  position: absolute;
+  border: 1px solid #0c0e10;
+  border-radius: 50%;
+  background: #222427;
+  box-shadow:
+    inset 0 1px 1px #ffffff17,
+    0 2px 4px #000a;
+}
+
+.pivotPlate {
+  top: 21.94%;
+  left: 81.19%;
+  width: 12.5%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+}
+
+.armRest {
+  top: 59%;
+  left: 79.7%;
+  width: 3.7%;
+  aspect-ratio: 1;
+}
+
+.arm {
+  position: absolute;
+  inset: 0;
+  transform-origin: 81.19% 21.94%;
+  transition:
+    transform 620ms cubic-bezier(0.22, 0.66, 0.33, 1),
+    filter 170ms ease-out,
+    opacity 280ms ease-out;
+  filter: drop-shadow(2px 4px 2px #000b);
+}
+
+.arm svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.deck[data-arm="hover"] .arm {
+  transform: rotate(29deg) scaleY(0.986);
+}
+
+.deck[data-arm="contact"] .arm {
+  transform: rotate(29deg);
+  transition-duration: 175ms, 170ms, 280ms;
+  filter: drop-shadow(1px 2px 1px #000b);
+}
+
+.indicator {
+  position: absolute;
+  bottom: 13%;
+  right: 13%;
+  width: 1.4%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #727873;
+  box-shadow: 0 0 0 2px #0f1113;
+  transition:
+    background-color 240ms,
+    box-shadow 240ms,
+    opacity 280ms ease-out;
+}
+
+.deck[data-audio="true"] .indicator {
+  background: var(--accent);
+  box-shadow:
+    0 0 0 2px #0f1113,
+    0 0 9px #d4ff2460;
+}
+
+.chassis,
+.platter::before,
+.pivotPlate,
+.armRest {
+  transition: opacity 280ms ease-out;
+}
+
+.deck[data-departing="true"]
+  :is(.chassis, .pivotPlate, .armRest, .arm, .indicator),
+.deck[data-departing="true"] .platter::before {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chassis,
+  .platter::before,
+  .pivotPlate,
+  .armRest,
+  .arm,
+  .indicator {
+    transition: none;
+  }
+}

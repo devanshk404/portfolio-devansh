@@ -20,7 +20,8 @@ Start the development server with `npm run dev`, keep the browser open, and save
 | Work history                                                    | `src/data/experience.ts`                 | `experience`                                                                        |
 | Experiment gallery and detail dialogs                           | `src/data/experiments.ts`                | `experiments`                                                                       |
 | Personal scrapbook entries and facts                            | `src/data/interests.ts`                  | `interests`, `personalDetails`                                                      |
-| Email, social destinations, resume, playlist                    | `src/config/site.ts`                     | Matching configuration field                                                        |
+| Email, social destinations, resume                              | `src/config/site.ts`                     | Matching configuration field                                                        |
+| Navbar music and cover art                                       | `src/config/recordAudio.ts`              | Audio URLs, track titles, optional artists and covers                                |
 | Background treatment                                            | `src/components/PortfolioBackground.tsx` | Reusable visual component; set `siteConfig.backgroundAsset` for replacement artwork |
 
 ## Hero and portrait
@@ -91,7 +92,7 @@ Before all this: the engineering background is part of the site's narrative. Add
 
 Add a `postUrl` to `kitchenVideos` to update the homepage carousel and `/kitchen` together. Array order controls display order. Add a short `title` when available.
 
-Open the post in [X Publish](https://publish.x.com/) and verify that **Embedded Video** plays without the surrounding post. Set `media.width` and `media.height` to the video’s native dimensions to enable the inline player. An optional `media.poster` can use X’s existing video preview image. A URL without verified `media` opens the original post on X. Use `showPostLink: false` to hide the small original-post link on a playable card.
+Set the optional `poster` to the video’s preview image. The thumbnail’s play control opens the original X post in a new tab.
 
 ## Archived experiments
 
@@ -116,9 +117,13 @@ Replace the interest artwork via `interests[].image`, and change `title` or `cap
 
 `personalDetails` contains obvious placeholders for a current book and a personal fact. Replace these with things that are actually true. No reading list, favorite driver, favorite team, album, or gaming history has been invented.
 
-## A real music playlist
+## Navbar music
 
-Set `siteConfig.spotifyPlaylistUrl` to the full HTTPS URL of a real Spotify playlist you control or are entitled to share. Use a normal playlist URL from Spotify's Share action. The player is intentionally a static coming-soon state until a valid source is configured. Music must begin only after visitor interaction. No copyrighted audio is bundled or downloaded by this project.
+The vinyl introduction runs once per tab session and can be skipped with Escape. Reduced-motion visitors go straight to the navbar control. The record displays the current track’s cover art and spins when audio plays. The default catalog is empty.
+
+Add MP3s and covers under `public/music/`. Add an entry to `recordAudioConfig.tracks` for each MP3, with a unique `id`, a `title`, an audio `src`, and optional `artist` and `artwork`. Reference local files with paths such as `/music/song.mp3` and `/music/cover.jpg`. The player chooses a random starting track and tries to play it on arrival if `autoplay` is enabled. If the browser requires a click, use **Enable music**.
+
+Opening a Kitchen video on X pauses the navbar music. Visitors can resume it with the navbar’s Play control.
 
 ## Contact and social links
 
@@ -141,7 +146,7 @@ The current midnight-black/grid/star treatment is independently implemented in `
 - Replace the portrait and selected project media; review `ASSET_INVENTORY.md`.
 - Review every draft case study, attribution, and campaign contribution.
 - Add verified results only where evidence exists.
-- Fill actual email, social, résumé, and optional playlist destinations.
+- Fill actual email, social, and résumé destinations.
 - Review the personal fact and reading placeholders.
 - Check desktop and mobile navigation, case-study URLs, dialogs, media, focus states, and reduced-motion behavior.
 - Run the lint, type check, and production build commands.

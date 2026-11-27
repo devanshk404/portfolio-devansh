@@ -7,7 +7,6 @@ Local asset folders:
 - `public/images/` — real portraits, project artwork, screenshots, and personal images.
 - `public/videos/` — short optimized previews and original films.
 - `public/placeholders/` — original SVG placeholder artwork.
-- `public/music/` — optional owned/licensed artwork; no music is bundled.
 
 ## Source dimensions and display crops
 
@@ -57,7 +56,7 @@ Edit each corresponding object in `src/data/experiments.ts`. Image crops vary by
 | Gaming               | `/placeholders/gaming.svg` | 5:4 landscape   | 1500 × 1200          | Personal setups or permitted imagery                                          |
 | Science and space    | `/placeholders/space.svg`  | 5:4 landscape   | 1500 × 1200          | Check source attribution and usage rights                                     |
 | Books and philosophy | `/placeholders/books.svg`  | 5:4 landscape   | 1500 × 1200          | Add actual books only after supplying titles                                  |
-| Music / playlist     | `/placeholders/album.svg`  | 1:1 square      | 800 × 800            | Real playlist configured in `siteConfig.spotifyPlaylistUrl`; no audio bundled |
+| Navbar vinyl         | Optional cover art        | Circular crop | Square recommended  | Pair covers with MP3s in `src/config/recordAudio.ts` |
 
 Edit `src/data/interests.ts`. These categories come from the supplied brief; the site makes no claim about a favorite artist, album, driver, game achievement, or specific book.
 
@@ -65,7 +64,6 @@ Edit `src/data/interests.ts`. These categories come from the supplied brief; the
 
 - [ ] Real contact email, X/Twitter, LinkedIn, and GitHub destinations.
 - [ ] Résumé PDF and `siteConfig.resumeUrl`.
-- [ ] Real Spotify playlist URL, if desired.
 - [ ] Real deployment origin in `siteConfig.url`.
 - [ ] Approved brand logos if replacing text monograms; otherwise keep monograms.
 - [ ] Case-study project-specific media and verified results.

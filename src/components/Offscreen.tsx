@@ -2,95 +2,17 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import {
-  ArrowUpRight,
-  Headphones,
-  Play,
-  SkipBack,
-  SkipForward,
-} from "lucide-react";
-import { siteConfig } from "@/config/site";
+import { ArrowUpRight } from "lucide-react";
 import { interests, personalDetails } from "@/data/interests";
 import { Dialog } from "@/components/Dialog";
-
-function playlistId(value: string): string | null {
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" && url.hostname === "open.spotify.com"
-      ? (url.pathname.match(
-          /^\/(?:intl-[a-z]+\/)?playlist\/([a-zA-Z0-9]{22})\/?$/,
-        )?.[1] ?? null)
-      : null;
-  } catch {
-    return null;
-  }
-}
 
 export function Offscreen() {
   const [selected, setSelected] = useState<(typeof interests)[number] | null>(
     null,
   );
-  const [loadMusic, setLoadMusic] = useState(false);
-  const id = playlistId(siteConfig.spotifyPlaylistUrl);
   return (
     <>
       <div className="scrapbook">
-        <div className="mixtape">
-          <span className="mixtape-label eyebrow">
-            <Headphones size={14} /> WHAT’S ON REPEAT
-          </span>
-          <div className="record-sleeve">
-            <Image
-              src="/placeholders/album.svg"
-              alt="Original vinyl sleeve placeholder artwork"
-              width={720}
-              height={720}
-              sizes="260px"
-            />
-          </div>
-          <div className="mixtape-track">
-            <h3>
-              A little hip-hop.
-              <br />A lot of repeat.
-            </h3>
-            <p className="eyebrow">
-              {id ? "THE SOUNDTRACK" : "PLAYLIST COMING SOON"}
-            </p>
-          </div>
-          <div className="music-controls">
-            <span aria-hidden="true">
-              <SkipBack size={17} />
-            </span>
-            <button
-              disabled={!id}
-              aria-label={
-                id
-                  ? loadMusic
-                    ? "Hide Spotify playlist"
-                    : "Load Spotify playlist"
-                  : "Playback unavailable — playlist coming soon"
-              }
-              aria-expanded={id ? loadMusic : undefined}
-              onClick={() => setLoadMusic(!loadMusic)}
-            >
-              <Play size={20} fill="currentColor" />
-            </button>
-            <span aria-hidden="true">
-              <SkipForward size={17} />
-            </span>
-          </div>
-          {id && loadMusic && (
-            <iframe
-              title="Devansh’s Spotify playlist"
-              src={`https://open.spotify.com/embed/playlist/${id}`}
-              width="100%"
-              height="352"
-              loading="lazy"
-              allow="encrypted-media; fullscreen; picture-in-picture"
-              className="spotify-embed"
-            />
-          )}
-        </div>
         {interests.map((interest, index) => (
           <button
             key={interest.id}

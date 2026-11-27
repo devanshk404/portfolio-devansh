@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { NavbarMusic } from "@/components/NavbarMusic";
 
 const links = [
   ["Home", "home"],
@@ -59,31 +60,34 @@ export function Header() {
         >
           devansh kaushik
         </Link>
-        <nav aria-label="Main navigation" className="desktop-nav">
-          {links.map(([label, id]) => (
-            <Link
-              key={id}
-              href={`/#${id}`}
-              className={pathname === "/" && active === id ? "is-active" : ""}
-              aria-current={
-                pathname === "/" && active === id ? "location" : undefined
-              }
-            >
-              {label}
-              {id === "contact" && <ArrowUpRight size={13} />}
-            </Link>
-          ))}
-        </nav>
-        <button
-          ref={menuButton}
-          className="menu-toggle"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="header-controls">
+          <nav aria-label="Main navigation" className="desktop-nav">
+            {links.map(([label, id]) => (
+              <Link
+                key={id}
+                href={`/#${id}`}
+                className={pathname === "/" && active === id ? "is-active" : ""}
+                aria-current={
+                  pathname === "/" && active === id ? "location" : undefined
+                }
+              >
+                {label}
+                {id === "contact" && <ArrowUpRight size={13} />}
+              </Link>
+            ))}
+          </nav>
+          <NavbarMusic onToggle={() => setOpen(false)} />
+          <button
+            ref={menuButton}
+            className="menu-toggle"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
       <nav
         id="mobile-navigation"

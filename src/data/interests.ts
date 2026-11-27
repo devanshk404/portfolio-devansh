@@ -30,7 +30,6 @@ export const interests = [
 ];
 
 export const personalDetails = [
-  { label: "On repeat", value: "Hip-hop. Playlist coming soon." },
   { label: "Currently reading", value: "Book recommendation to be added." },
   {
     label: "A small personal detail",

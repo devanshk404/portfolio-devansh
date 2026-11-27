@@ -13,7 +13,6 @@ export const siteConfig = {
     { label: "GitHub", href: "" },
   ],
   resumeUrl: "",
-  spotifyPlaylistUrl: "",
   portrait: "/images/astronaut-on-horse.png",
   backgroundAsset: "",
 };

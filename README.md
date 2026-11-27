@@ -26,10 +26,10 @@ npm start
 
 - [CONTENT_GUIDE.md](CONTENT_GUIDE.md): where to change text, projects, dates, media, playlist, and links.
 - [ASSET_INVENTORY.md](ASSET_INVENTORY.md): every placeholder, source dimensions, and replacement recommendations.
-- `src/config/site.ts`: actual email, social links, résumé, portrait, playlist, production origin, and optional background asset.
+- `src/config/site.ts`: actual email, social links, résumé, portrait, production origin, and optional background asset.
 - `src/data/`: all main page copy, projects, experience, experiments, and interests.
 
-The initial artwork is original SVG placeholder illustration, not client campaign evidence or personal photography. Case studies and notes are explicitly drafts. Results are pending verification. Contact destinations remain unavailable until real values are supplied. Music never plays automatically; configuring a valid Spotify playlist enables the load control, then Spotify's own playback controls.
+The initial artwork is original SVG placeholder illustration, not client campaign evidence or personal photography. Case studies and notes are explicitly drafts. Results are pending verification. Contact destinations remain unavailable until real values are supplied. The vinyl entrance leads to the navbar music controls. See the [music integration notes](CONTENT_GUIDE.md#navbar-music) to add MP3s and cover art.
 
 ## Routes and structure
 
