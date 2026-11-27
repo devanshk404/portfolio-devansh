@@ -6,28 +6,19 @@ export const siteContent = {
         "A selection of stories, strategies, and things that made it out of the group chat.",
     },
     capabilities: {
-      title: "What I bring to the table.",
-      intro:
-        "A strategy person who gets the craft. A creative person who gets the system.",
+      title: "What I do.",
     },
     experience: {
       title: "Where I’ve been.",
-      description:
-        "A few different worlds. A growing collection of perspectives. Some chapters overlap.",
-      engineeringHeading: "Before all this: Computer Engineering.",
-      engineeringDescription:
-        "Machine learning, blockchain, augmented reality, and software projects. The curiosity stayed. The medium changed.",
     },
     notes: {
       title: "Things on my mind.",
       description:
         "Not manifestos. Just a few unfinished conversations with myself.",
     },
-    closing: "Still figuring things out. Still making things anyway.",
   },
   brands: [
     { name: "Superteam Earn", href: "https://x.com/SuperteamEarn" },
-    { name: "Asgard Finance", href: "https://x.com/asgardfi" },
     { name: "CoinDCX", href: "https://x.com/CoinDCX" },
     {
       name: "One Hand Clap",
@@ -48,34 +39,19 @@ export const siteContent = {
   },
   capabilities: [
     {
-      title: "Creative Strategy",
+      title: "Social & Content",
       description:
-        "Ideas, narratives, and creative directions that give brands and campaigns something worth saying.",
+        "I plan and create social media content, run campaigns, and help brands connect with people online.",
     },
     {
-      title: "Social & Growth Marketing",
+      title: "Ideas & Writing",
       description:
-        "Understanding audiences, building distribution, and creating content that reaches the right people.",
+        "I come up with ideas and turn them into copy, scripts, and stories that people want to read or watch.",
     },
     {
-      title: "Storytelling & Copywriting",
+      title: "Video & Visual Storytelling",
       description:
-        "Turning complex topics into accessible stories, clear messages, and words that sound human.",
-    },
-    {
-      title: "Campaigns & Community",
-      description:
-        "Launching, communicating, and supporting campaigns that connect with online communities.",
-    },
-    {
-      title: "Video & Creative Production",
-      description:
-        "Concept development, visual storytelling, creative direction, and experimental filmmaking.",
-    },
-    {
-      title: "Technology & AI Workflows",
-      description:
-        "Exploring creative technology, automation, and new tools to make more ambitious ideas possible.",
+        "I turn ideas into videos, from the initial concept to the final edit, using AI tools where they help.",
     },
   ],
   notes: [

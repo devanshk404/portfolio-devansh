@@ -2,13 +2,14 @@
 
 import { useId, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { kitchenVideos, type KitchenVideo } from "@/data/kitchenVideos";
 import { notifyKitchenVideoIntent } from "@/lib/mediaPlayback";
 
 const pageSize = 6;
+const carouselSpeed = 40; // Pixels per second.
 
-function VideoCard({ video }: { video: KitchenVideo }) {
+function VideoCard({ video, duplicate = false }: { video: KitchenVideo; duplicate?: boolean }) {
   const { poster, postUrl, title = "Video on X" } = video;
   const [posterFailed, setPosterFailed] = useState(false);
 
@@ -20,6 +21,8 @@ function VideoCard({ video }: { video: KitchenVideo }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Watch ${title} on X (opens in a new tab)`}
+        tabIndex={duplicate ? -1 : undefined}
+        onMouseDown={duplicate ? (event) => event.preventDefault() : undefined}
         onClick={notifyKitchenVideoIntent}
       >
         {poster && !posterFailed && (
@@ -41,64 +44,117 @@ function VideoCard({ video }: { video: KitchenVideo }) {
   );
 }
 
-export function KitchenCollection({ carousel = false }: { carousel?: boolean }) {
-  const trackId = useId();
+function KitchenCarousel() {
   const trackRef = useRef<HTMLUListElement>(null);
-  const [visibleCount, setVisibleCount] = useState(pageSize);
-  const [canGoBack, setCanGoBack] = useState(false);
-  const [canGoForward, setCanGoForward] = useState(false);
-  const visibleVideos = carousel ? kitchenVideos : kitchenVideos.slice(0, visibleCount);
-
-  function updateArrows() {
-    const track = trackRef.current;
-    if (!track) return;
-    setCanGoBack(track.scrollLeft > 1);
-    setCanGoForward(track.scrollLeft + track.clientWidth < track.scrollWidth - 1);
-  }
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!carousel || !track) return;
-    const observer = new ResizeObserver(updateArrows);
-    observer.observe(track);
-    return () => observer.disconnect();
-  }, [carousel]);
+    if (!track) return;
+    const first = track.firstElementChild;
+    const duplicate = track.children.item(kitchenVideos.length);
+    if (!first || !duplicate) return;
 
-  function move(direction: -1 | 1) {
-    const track = trackRef.current;
-    const first = track?.children[0];
-    const second = track?.children[1];
-    if (!track || !first || !second) return;
-    const step = second.getBoundingClientRect().left - first.getBoundingClientRect().left;
-    track.scrollBy({ left: direction * step });
-  }
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const canHover = window.matchMedia("(hover: hover)");
+    let inView = false;
+    let frame = 0;
+    let lastTime = 0;
+    let lastPosition = track.scrollLeft;
+    let manualScrollUntil = 0;
+    let remainder = 0;
+    let loopWidth = 0;
+
+    const measure = () => {
+      loopWidth = Math.round(duplicate.getBoundingClientRect().left - first.getBoundingClientRect().left);
+    };
+
+    const move = (now: number) => {
+      frame = window.requestAnimationFrame(move);
+      const elapsed = lastTime ? Math.min(now - lastTime, 50) : 0;
+      lastTime = now;
+      const position = track.scrollLeft;
+
+      if (position !== lastPosition) {
+        // Let native scrolling and its momentum finish before resuming.
+        manualScrollUntil = now + 500;
+        lastPosition = position;
+        remainder = 0;
+      }
+
+      if (
+        loopWidth <= 0 ||
+        now < manualScrollUntil ||
+        track.matches(":active, :has(:focus-visible)") ||
+        (canHover.matches && track.matches(":hover"))
+      ) return;
+
+      // Scroll offsets can round to whole pixels, so carry fractional movement forward.
+      remainder += (elapsed * carouselSpeed) / 1000;
+      const distance = Math.floor(remainder);
+      if (!distance) return;
+      remainder -= distance;
+      track.scrollLeft = (position + distance) % loopWidth;
+      lastPosition = track.scrollLeft;
+    };
+
+    function syncAnimation() {
+      window.cancelAnimationFrame(frame);
+      lastTime = 0;
+      if (inView && !reducedMotion.matches) {
+        measure();
+        frame = window.requestAnimationFrame(move);
+      }
+    }
+
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(track);
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      syncAnimation();
+    });
+    visibilityObserver.observe(track);
+    reducedMotion.addEventListener("change", syncAnimation);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      resizeObserver.disconnect();
+      visibilityObserver.disconnect();
+      reducedMotion.removeEventListener("change", syncAnimation);
+    };
+  }, []);
+
+  return (
+    <ul ref={trackRef} className="kitchen-carousel" aria-label="Kitchen videos">
+      {kitchenVideos.map((video) => (
+        <li key={video.postUrl}>
+          <VideoCard video={video} />
+        </li>
+      ))}
+      {kitchenVideos.slice(0, 3).map((video) => (
+        <li key={`duplicate-${video.postUrl}`} aria-hidden="true">
+          <VideoCard video={video} duplicate />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function KitchenCollection({ carousel = false }: { carousel?: boolean }) {
+  const trackId = useId();
+  const [visibleCount, setVisibleCount] = useState(pageSize);
+
+  if (carousel) return <KitchenCarousel />;
 
   return (
     <div>
-      {carousel && (
-        <div className="kitchen-arrows">
-          <button type="button" aria-label="Previous video" aria-controls={trackId} disabled={!canGoBack} onClick={() => move(-1)}>
-            <ArrowLeft size={19} aria-hidden="true" />
-          </button>
-          <button type="button" aria-label="Next video" aria-controls={trackId} disabled={!canGoForward} onClick={() => move(1)}>
-            <ArrowRight size={19} aria-hidden="true" />
-          </button>
-        </div>
-      )}
-      <ul
-        id={trackId}
-        ref={trackRef}
-        className={carousel ? "kitchen-carousel" : "kitchen-grid"}
-        aria-label="Kitchen videos"
-        onScroll={carousel ? updateArrows : undefined}
-      >
-        {visibleVideos.map((video) => (
+      <ul id={trackId} className="kitchen-grid" aria-label="Kitchen videos">
+        {kitchenVideos.slice(0, visibleCount).map((video) => (
           <li key={video.postUrl}>
             <VideoCard video={video} />
           </li>
         ))}
       </ul>
-      {!carousel && visibleCount < kitchenVideos.length && (
+      {visibleCount < kitchenVideos.length && (
         <button type="button" className="kitchen-button kitchen-more" aria-controls={trackId} onClick={() => setVisibleCount((count) => count + pageSize)}>
           Load more videos <ArrowRight size={16} aria-hidden="true" />
         </button>

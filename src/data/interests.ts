@@ -28,11 +28,3 @@ export const interests = [
     kind: "books",
   },
 ];
-
-export const personalDetails = [
-  { label: "Currently reading", value: "Book recommendation to be added." },
-  {
-    label: "A small personal detail",
-    value: "A fun fact belongs here. Add one later.",
-  },
-];

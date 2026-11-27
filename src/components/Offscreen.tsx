@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { interests, personalDetails } from "@/data/interests";
+import { interests } from "@/data/interests";
 import { Dialog } from "@/components/Dialog";
 
 export function Offscreen() {
@@ -49,14 +49,6 @@ export function Offscreen() {
             ✳
           </span>
         </div>
-      </div>
-      <div className="personal-details">
-        {personalDetails.map((detail) => (
-          <p key={detail.label}>
-            <span className="eyebrow">{detail.label}</span>
-            <span>{detail.value}</span>
-          </p>
-        ))}
       </div>
       <Dialog
         open={!!selected}

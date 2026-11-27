@@ -1,57 +1,23 @@
 export const experience = [
   {
-    organization: "Asgard Finance",
-    role: "Growth / Marketing Contractor",
-    period: "August 2025–Present",
-    monogram: "AF",
-    description:
-      "Growth strategy, marketing, and brand storytelling around financial products. An overlapping contract role.",
-    contributions: [
-      "Growth and marketing",
-      "Brand storytelling",
-      "Selected campaign contributions to be added",
-    ],
-    projectSlug: "asgard-finance",
-  },
-  {
     organization: "Superteam Earn",
     role: "Social Media Manager",
-    period: "August 2024–Present",
-    monogram: "SE",
+    period: "February 2025 – Present",
     description:
-      "Social storytelling and creative marketing for a platform connecting talent with paid opportunities.",
-    contributions: [
-      "Content strategy and social storytelling",
-      "Community engagement and campaign communication",
-      "Creative production",
-    ],
-    projectSlug: "superteam-earn",
+      "I manage social content for Superteam Earn, from everyday posts and memes to hackathon campaigns, product launches, and videos.",
   },
   {
     organization: "VORLD",
     role: "Content & Community",
-    period: "December 2024–February 2025",
-    monogram: "V",
+    period: "September 2024 – February 2025",
     description:
-      "Content and community work. This role overlapped with my work at Superteam Earn.",
-    contributions: [
-      "Content and community",
-      "Selected contributions to be added",
-    ],
-    projectSlug: "vorld",
+      "I worked on social content and community communications for Web3 projects, including partner announcements and campaigns.",
   },
   {
     organization: "One Hand Clap",
     role: "Junior Creative Associate",
-    period: "November 2023–May 2024",
-    monogram: "OHC",
+    period: "November 2023 – June 2024",
     description:
-      "Creative agency experience, including CoinDCX account and campaign work within this role.",
-    contributions: [
-      "Creative and campaign work",
-      "CoinDCX account contributions",
-      "Approved examples to be added",
-    ],
-    projectSlug: "coindcx",
+      "I managed CoinDCX's X content, creating memes, informational posts, and campaign content. I also wrote for brands including Prime Video, BGMI, and Bold Care.",
   },
 ];

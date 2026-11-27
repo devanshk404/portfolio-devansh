@@ -5,15 +5,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { NavbarMusic } from "@/components/NavbarMusic";
+import { siteConfig } from "@/config/site";
 
-const links = [
+const links = ([
   ["Home", "home"],
   ["Work", "work"],
   ["Kitchen", "lab"],
   ["Experience", "experience"],
   ["Offscreen", "offscreen"],
   ["Contact", "contact"],
-] as const;
+] as const).filter(
+  ([, id]) => siteConfig.showOffscreenAndNotes || id !== "offscreen",
+);
 
 export function Header() {
   const [open, setOpen] = useState(false);

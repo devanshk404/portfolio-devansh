@@ -19,7 +19,7 @@ Start the development server with `npm run dev`, keep the browser open, and save
 | Project previews and entire case studies                        | `src/data/projects.ts`                   | `projects`                                                                          |
 | Work history                                                    | `src/data/experience.ts`                 | `experience`                                                                        |
 | Experiment gallery and detail dialogs                           | `src/data/experiments.ts`                | `experiments`                                                                       |
-| Personal scrapbook entries and facts                            | `src/data/interests.ts`                  | `interests`, `personalDetails`                                                      |
+| Personal scrapbook entries                                      | `src/data/interests.ts`                  | `interests`                                                                         |
 | Email, social destinations, resume                              | `src/config/site.ts`                     | Matching configuration field                                                        |
 | Navbar music and cover art                                       | `src/config/recordAudio.ts`              | Audio URLs, track titles, optional artists and covers                                |
 | Background treatment                                            | `src/components/PortfolioBackground.tsx` | Reusable visual component; set `siteConfig.backgroundAsset` for replacement artwork |
@@ -111,11 +111,9 @@ Use an H.264 MP4 with a poster image and a short muted preview. Aim for 720p or 
 
 Update `notes` with the real process, collaborators, and credits. If a film contains speech or meaningful sound, supply accessible captions or an equivalent transcript alongside the media before publishing the final piece. Do not label a draft as finished solely because a placeholder image exists.
 
-## Offscreen and personal details
+## Offscreen
 
 Replace the interest artwork via `interests[].image`, and change `title` or `caption` to add your own words. The racing, gaming, space, and books artwork is original placeholder illustration, not personal photography or copyrighted game/album imagery.
-
-`personalDetails` contains obvious placeholders for a current book and a personal fact. Replace these with things that are actually true. No reading list, favorite driver, favorite team, album, or gaming history has been invented.
 
 ## Navbar music
 
@@ -127,7 +125,7 @@ Opening a Kitchen video on X pauses the navbar music. Visitors can resume it wit
 
 ## Contact and social links
 
-Set `siteConfig.email` to your real email address; use just the address, without `mailto:`. Set the `href` for each item in `socials` to the full HTTPS destination. Add the résumé PDF under `public/` and configure `resumeUrl`, for example `/resume.pdf`.
+Set `siteConfig.email` to your email address without `mailto:`. Set each configured field in `siteConfig.socials` to its full HTTPS destination. Add the résumé PDF under `public/` and set `resumeUrl` to its path, such as `/resume.pdf`.
 
 Empty values are intentional: they produce labeled unavailable states instead of fake destinations. Do not use `#` or a made-up username as a substitute. Check each configured link in a browser before release.
 
