@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 880" role="img" aria-labelledby="title"><title id="title">Portrait placeholder for Devansh Kaushik; replace with a personal photograph</title><defs><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".12"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="currentColor" stroke-opacity=".12"/></pattern></defs><rect width="100%" height="100%" fill="#DCE2EA"/>
+<g color="#8291A8"><rect width="720" height="880" fill="url(#grid)"/></g>
+<circle cx="359" cy="324" r="229" fill="#F3F4EF"/>
+<path d="M134 851L153 630Q161 529 279 500L274 432Q220 405 221 309Q204 183 290 157Q314 101 394 139Q505 117 506 257L491 357Q490 410 444 439L444 503Q545 531 566 617L602 851" fill="#172239"/>
+<path d="M236 263Q249 190 316 194L379 219L445 196L494 270L500 202Q483 110 386 138Q307 106 283 159Q209 169 222 272Z" fill="#030407"/>
+<path d="M282 333L318 321M401 323L437 333M357 339L341 388L363 391M326 419Q361 437 396 416" fill="none" stroke="#B6C2D4" stroke-width="8" stroke-linecap="round"/>
+<path d="M275 500L355 587L444 503M355 587L350 851" fill="none" stroke="#B6C2D4" stroke-width="3"/>
+<g transform="translate(530 140)"><path d="M0-40V40M-40 0H40M-28-28L28 28M-28 28L28-28" stroke="#1558C9" stroke-width="5"/></g>
+<path d="M68 57H132M68 57V121M652 57H588M652 57V121M68 823H132M68 823V759M652 823H588M652 823V759" fill="none" stroke="#8291A8" stroke-width="2"/>
+<text x="195" y="794" fill="#F3F4EF" font-family="monospace" font-size="18" letter-spacing="2">PORTRAIT GOES HERE</text>
+<rect width="720" height="880" filter="url(#grain)" opacity=".45"/>
+</svg>

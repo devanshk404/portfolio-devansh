@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" role="img" aria-labelledby="title"><title id="title">Original retro gaming interest poster placeholder</title><defs><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".12"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="currentColor" stroke-opacity=".12"/></pattern></defs><rect width="100%" height="100%" fill="#6b765d"/>
+<rect x="65" y="73" width="870" height="634" fill="#b4b3a4"/>
+<rect x="74" y="82" width="852" height="43" fill="#3f4f58"/>
+<text x="92" y="110" font-family="monospace" font-size="21" fill="#e5e5cc">FRIDAY_NIGHT.exe</text><rect x="78" y="136" width="844" height="512" fill="#17281c"/>
+<g fill="#add078" font-family="monospace" font-size="29"><text x="123" y="210">CONNECTION ESTABLISHED.</text><text x="123" y="289">&gt; one more game?</text><text x="123" y="390">[ YOU HAVE JOINED THE SERVER ]</text><text x="123" y="520">ping: good / sleep: optional</text></g>
+<rect x="125" y="557" width="17" height="29" fill="#add078"/>
+<text x="88" y="684" font-family="monospace" font-size="19" fill="#363d34">RETRO PC CULTURE / ORIGINAL PLACEHOLDER</text>
+</svg>
